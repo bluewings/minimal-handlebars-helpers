@@ -1,0 +1,35 @@
+{
+  "name": "minimal-handlebars-helpers",
+  "version": "1.0.0",
+  "description": "minimal handlebars helpers for browser",
+  "author": {
+    "name": "Sung Won Cha",
+    "email": "mygenie3@naver.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bluewings/minimal-handlebars-helpers"
+  },
+  "dependencies": {
+    "arr-flatten": "^1.0.3",
+    "eslint": "^3.12.2",
+    "eslint-config-airbnb": "^13.0.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
+    "eslint-plugin-react": "^6.8.0",
+    "handlebars": "^4.0.7",
+    "index-of": "^0.2.0",
+    "is-even": "^0.1.1",
+    "is-number": "^3.0.0",
+    "is-odd": "^0.1.1",
+    "make-iterator": "^1.0.0"
+  },
+  "devDependencies": {
+    "mocha": "^3.2.0",
+    "should": "^11.1.2"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "license": "MIT"
+}
