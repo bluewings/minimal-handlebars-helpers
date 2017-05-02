@@ -1,4 +1,4 @@
-# minimal-handlebars-helpers for webpack
+# minimal-handlebars-helpers
 
 ## Installation
 
