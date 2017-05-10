@@ -14,7 +14,7 @@ helpers.register = (Handlebars, namespaces) => {
     }
     if (targets === null || targets.indexOf(e) !== -1) {
       Object.keys(helpers[e]).forEach((name) => {
-        if (typeof helpers[e][name] === 'function') {
+        if (typeof helpers[e][name] === 'function' && !(name in Handlebars.helpers)) {
           Handlebars.registerHelper(name, helpers[e][name]);
         }
       });
