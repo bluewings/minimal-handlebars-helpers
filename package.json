@@ -1,6 +1,6 @@
 {
   "name": "minimal-handlebars-helpers",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "minimal handlebars helpers for browser",
   "author": {
     "name": "Sung Won Cha",
@@ -13,6 +13,7 @@
   "dependencies": {
     "arr-flatten": "^1.0.3",
     "handlebars": "^4.0.7",
+    "handlebars-helper-moment": "^0.2.0",
     "index-of": "^0.2.0",
     "is-even": "^0.1.1",
     "is-number": "^3.0.0",

@@ -9,6 +9,11 @@ const tests = [
 `{{#is value true}}TRUE{{else}}FALSE{{/is}}`,
 { value: true },
 `TRUE`],
+
+['moment helper',
+`moment: {{moment example format="YYYY.M.D."}}`,
+{ example: '2017-03-21' },
+`moment: 2017.3.21.`],
 ];
 /* eslint-enable */
 
