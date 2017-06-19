@@ -14,6 +14,18 @@ const tests = [
 `moment: {{moment example format="YYYY.M.D."}}`,
 { example: '2017-03-21' },
 `moment: 2017.3.21.`],
+
+['suggestedFontColor',
+`{{#each colors}}
+{{this}} → {{suggestedFontColor this}}
+{{/each}}`,
+{ colors: ['#000000', '#ffffff', '#9f9f9f', '#a0a0a0', '#ff0000'] },
+`#000000 → #ffffff
+#ffffff → #000000
+#9f9f9f → #ffffff
+#a0a0a0 → #000000
+#ff0000 → #ffffff
+`],
 ];
 /* eslint-enable */
 
