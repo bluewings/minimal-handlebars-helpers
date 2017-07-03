@@ -10,10 +10,10 @@ const tests = [
 { value: true },
 `TRUE`],
 
-['moment helper',
-`moment: {{moment example format="YYYY.M.D."}}`,
+['regexpReplace helper',
+`regexp replace: {{regexpReplace example '^([0-9]{4})-([0-9]{2}).*$' '$1.$2.'}}`,
 { example: '2017-03-21' },
-`moment: 2017.3.21.`],
+`regexp replace: 2017.03.`],
 
 ['suggestedFontColor',
 `{{#each colors}}
