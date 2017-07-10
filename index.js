@@ -1562,7 +1562,8 @@ helpers.vodBuildPhase = function (videoId) {
   if (!videoId || typeof videoId !== 'string') {
     return '';
   }
-  return videoId.split('::')[2] || '';
+  var buildPhase = videoId.split('::')[2] || '';
+  return buildPhase === 'test' ? 'dev' : buildPhase;
 };
 
 helpers.imgPath = function () {
