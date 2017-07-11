@@ -2,13 +2,28 @@
 
 var helpers = {};
 
-helpers.adcr = function (uri, meta, identifier, replacement) {
+function isArray (arg) {
+	return Object.prototype.toString.call(arg) === '[object Array]';
+}
+
+helpers.toArray = function () {
+	return Array.prototype.slice.call(arguments, 0, -1);
+};
+
+helpers.adcr = function (uri, meta, segments, identifier, replacement) {
+  if (!isArray(segments)) {
+    replacement = identifier;
+    identifier = segments;
+  }
   var key = typeof identifier === 'string' ? identifier.replace(/%REPLACE%/g, replacement) : '';
   var adEventLogAttr = key ? '" data-ad-event-log="key:' + key + ';' : '';
   return uri + adEventLogAttr;
 };
 
-helpers.adcrBeacon = function (eventCode, meta, replacement) {
+helpers.adcrBeacon = function (eventCode, meta, segments, replacement) {
+  if (!isArray(segments)) {
+    replacement = segments;
+  }
 	var key = typeof eventCode === 'string' ? eventCode.replace(/%REPLACE%/g, replacement) : '';
 	return 'https://example.com/?x=[[encrypted::' + JSON.stringify({ eventCode: key, meta: meta }) + ']]';
 };
