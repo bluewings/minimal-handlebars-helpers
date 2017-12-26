@@ -1547,6 +1547,15 @@ helpers.adcr = function (uri, meta, segments, identifier, replacement) {
     identifier = segments;
   }
   var key = typeof identifier === 'string' ? identifier.replace(/%REPLACE%/g, replacement) : '';
+  if (identifier.search(/\$[0-9]+/) !== -1 && isArray(replacement)) {
+    key = key.replace(/\$[0-9]+/g, function (whole) {
+      var arrIndex = parseInt(whole.replace(/\$/, ''), 10) - 1;
+      if (!isNaN(arrIndex) && typeof replacement[arrIndex] !== 'undefined') {
+        return replacement[arrIndex];
+      }
+      return whole;
+    });
+  }
   var adEventLogAttr = key ? '" data-ad-event-log="key:' + key + ';' : '';
   return uri + adEventLogAttr;
 };

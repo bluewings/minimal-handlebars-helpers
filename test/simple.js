@@ -26,6 +26,32 @@ const tests = [
 #a0a0a0 → #000000
 #ff0000 → #ffffff
 `],
+
+['nested loop',
+`{{#each cards }}
+  {{#each this.thumbs }}
+  a(href='{{{adcr this.link @root._ \'$.cards[$1].thumbs[$2].link\' (toArray @../index @index)}}}')
+  {{/each }}
+{{/each }}`,
+{ cards: [
+  {
+    thumbs: [
+      { link: 'http://examples.com/0/0' },
+      { link: 'http://examples.com/0/1' }
+    ]
+  },
+  {
+    thumbs: [
+      { link: 'http://examples.com/1/0' },
+      { link: 'http://examples.com/1/1' }
+    ]
+  }
+] },
+`  a(href='http://examples.com/0/0" data-ad-event-log="key:$.cards[0].thumbs[0].link;')
+  a(href='http://examples.com/0/1" data-ad-event-log="key:$.cards[0].thumbs[1].link;')
+  a(href='http://examples.com/1/0" data-ad-event-log="key:$.cards[1].thumbs[0].link;')
+  a(href='http://examples.com/1/1" data-ad-event-log="key:$.cards[1].thumbs[1].link;')
+`],
 ];
 /* eslint-enable */
 
