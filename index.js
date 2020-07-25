@@ -7,7 +7,7 @@
 		var a = factory();
 		for(var i in a) (typeof exports === 'object' ? exports : root)[i] = a[i];
 	}
-})(this, function() {
+})(typeof self !== 'undefined' ? self : this, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -1560,12 +1560,20 @@ helpers.adcr = function (uri, meta, segments, identifier, replacement) {
   return uri + adEventLogAttr;
 };
 
+helpers.adcrWithTrCode = function (trCode, uri, meta, segments, identifier, replacement) {
+  return helpers.adcr(uri, meta, segments, identifier, replacement);
+};
+
 helpers.adcrBeacon = function (eventCode, meta, segments, replacement) {
   if (!isArray(segments)) {
     replacement = segments;
   }
   var key = typeof eventCode === 'string' ? eventCode.replace(/%REPLACE%/g, replacement) : '';
   return 'https://example.com/?x=[[encrypted::' + JSON.stringify({ eventCode: key, meta: meta }) + ']]';
+};
+
+helpers.adcrBeaconWithTrCode = function (trCode, eventCode, meta, segments, replacement) {
+  return helpers.adcrBeacon(eventCode, meta, segments, replacement);
 };
 
 helpers.vodOutKey = function (videoId) {
